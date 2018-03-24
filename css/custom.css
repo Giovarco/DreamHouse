@@ -20,10 +20,6 @@ body {
 	margin-bottom: -10px;
 }
 
-.marginTop100 {
-	margin-top: 100px;
-}
-
 .enterALocationSearchBox
 {
      margin: 0 auto;
@@ -50,4 +46,8 @@ body {
 	-webkit-box-align: center!important;
     -ms-flex-align: center!important;
     align-items: center!important;
+}
+
+.marginTop150px {
+	margin-top: 150px;
 }
