@@ -1,0 +1,53 @@
+html {
+	height: 75%;
+}
+
+body {
+
+	background: url("../img/background-image.jpg") no-repeat center center fixed; /* ../img/background-image.jpg */
+	
+    -webkit-background-size: cover; /* For WebKit*/
+    -moz-background-size: cover;    /* Mozilla*/
+    -o-background-size: cover;      /* Opera*/
+    background-size: cover;         /* Generic*/
+
+	font-family: Gabriola;
+	letter-spacing: 1px;
+}
+
+#title {
+	font-size: 72px;
+	margin-bottom: -10px;
+}
+
+.marginTop100 {
+	margin-top: 100px;
+}
+
+.enterALocationSearchBox
+{
+     margin: 0 auto;
+	 margin-bottom: 250px;
+     width: 50%; 
+} 
+
+.enterALocationSearchInput {
+	text-align: center;
+	border-radius:4px;
+}
+
+.rounded {
+	border-radius: 10px !important;
+}
+
+.centerContentOnPage {
+	/*justify-content-center*/
+    -webkit-box-pack: center!important;
+    -ms-flex-pack: center!important;
+	justify-content: center!important;
+	
+	/*align-items-center*/
+	-webkit-box-align: center!important;
+    -ms-flex-align: center!important;
+    align-items: center!important;
+}

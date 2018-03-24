@@ -1,0 +1,18 @@
+/* CSS FOR SMARTPHONE */
+@media (max-width: 768px) {
+    
+    #title {
+        font-size: 45px;
+        margin-bottom: 10px;
+    }
+    
+    #subtitle {
+        display: none !important;
+    }
+    
+    .enterALocationSearchBox
+    {
+        width: 80%; 
+    }
+    
+}
