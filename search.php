@@ -31,7 +31,7 @@
 			<!-- Title section -->
 			<div class="row ">
 				<div class="col-3 px-0">
-					<img class="test" src="https://www.dronezine.it/wp-content/uploads/2015/06/duomo-milano.jpg">
+					<img class="w-100 h-100" src="https://www.dronezine.it/wp-content/uploads/2015/06/duomo-milano.jpg">
 				</div>
 
 				<div class="col-9">
