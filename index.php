@@ -14,10 +14,11 @@
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 		crossorigin="anonymous">
-		<link rel="stylesheet" href="css/custom.css">
-		<link rel="stylesheet" href="css/custom_mobile.css">
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/index/general.css">
+		<link rel="stylesheet" href="css/index/mobile.css">
 
-		<title>Hello, world!</title>
+		<title>DreamHouse</title>
 
 	</head>
 
