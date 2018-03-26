@@ -35,12 +35,14 @@
 				</div>
 
 				<div class="col-9">
-					<h1 id="title" class="text-white text-center">MILAN</h1>
+					<h1 id="title" class="text-white text-center">Milan</h1>
 				</div>
 			</div>
 
 			<!-- Filters column + Item showcase -->
 			<div class="row">
+
+				<!-- Filters column -->
 				<div class="col-3 bg-white px-0">
 
 					<div class="bar text-white text-center py-2">
@@ -65,7 +67,23 @@
 					
 				</div>
 
+				<!-- Item showcase -->
 				<div class="col-9">
+					<div class="row">
+						<div class="col-sm-3 border px-0">
+							<img class="w-100 h-100" src="img\Lighthouse.jpg">
+						</div>
+						<div class="col-sm-3 border">B
+						</div>
+						<div class="col-sm-3 border">C
+						</div>
+						<div class="col-sm-3 border">D
+						</div>
+						<div class="col-sm-3 border">E
+						</div>
+						<div class="col-sm-3 border">F
+						</div>
+					</div>
 				</div>
 
 			</div>
