@@ -8,13 +8,17 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+		<!-- Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 		crossorigin="anonymous">
-		<link rel="stylesheet" href="css/custom.css">
-		<link rel="stylesheet" href="css/custom_mobile.css">
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/index/general.css">
+		<link rel="stylesheet" href="css/index/mobile.css">
 
-		<title>Hello, world!</title>
+		<title>DreamHouse</title>
 
 	</head>
 
@@ -35,7 +39,7 @@
 			<!-- Subtitle -->
 			<div class="row">
 				<div class="col">
-					<h2 id="subtitle" class="text-white">
+					<h2 id="subtitle" class="mb-3 text-white">
 						<small>Join more than 5,828,476 happy renters searching 1,025,792 local apartments.</small>
 					</h2>
 				</div>
