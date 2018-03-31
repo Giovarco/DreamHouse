@@ -1,3 +1,5 @@
+<?php require './../environment_setup.php' ?>
+
 <!doctype html>
 <html lang="en" class="h-100">
 
@@ -102,6 +104,16 @@
 		<script src="config/javascript.js"></script>
 		<script src="js/utils/URL.js"></script>
 		<script src="js/home.js"></script>
+		<script>
+		$("img").hover(
+			function() {
+				$( this ).fadeIn();
+			},
+			function() {
+				$( this ).fadeOut();
+			}
+		);
+		</script>
 	</body>
 
 </html>
