@@ -94,79 +94,16 @@
 		crossorigin="anonymous"></script>
 
 		<!-- JavaScript -->
-		<?php require CONFIG_FOLDER.'/javascriptConfiguration.php'?>
+		<script src="config/javascriptConfiguration.js"></script>
 		<script src="js/utils/URL.js"></script>
-		<script src="js/home.js"></script>
-
-		<script>
-		$(document).ready(function() {
-			$.ajax({  
-				type: "POST",
-				url: "php/search/itemResult.php",  
-				data: {},
-				dataType: "html",
-				success: function(response) {  
-					$("#itemShowcaseRow").append(response);
-				},
-				error: function(){
-					alert("Call failed");
-				} 
-			}); 
-		});
-		</script>
+		<script src="js/search.js"></script>
 
 		<script>
 			function isMobile() {
 				return screen.width < javascriptConfiguration.mobileThreshold;
 			}
 		</script>
-		<script>
-		$(document).ready(function() {
-
-			var itemBoxes = $(".item-box");
-
-			itemBoxes.click(function() {
-				if (isMobile()) {
-
-					var thisItemBox = $(this);
-					var wasRecentlyClicked = thisItemBox.attr("recentlyClicked") == "true";
-
-					if(wasRecentlyClicked) {
-						console.log("Salta all'annuncio 1");
-					} else {
-						thisItemBox.attr("recentlyClicked", true);
-					}
-
-				} else {
-					console.log("Salta all'annuncio 2");
-				}
-			});
-
-			itemBoxes.hover(
-				function() {
-					var itemBox = $(this);
-					var image = itemBox.children("img:first");
-					var text = itemBox.children(".item-box-text");
-
-					image.fadeTo("slow" , 0.2);
-					text.fadeTo("slow", 1);
-				},
-				function() {
-
-					itemBoxes.attr("recentlyClicked", false);
-
-					var itemBox = $(this);
-					var image = itemBox.children("img:first");
-					var text = itemBox.children(".item-box-text");
-
-					image.fadeTo("slow" , 1);
-					text.fadeTo("slow", 0);
-				}
-			);
-
-		});
 		
-		</script>
 	</body>
 
 </html>
