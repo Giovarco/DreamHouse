@@ -74,36 +74,8 @@
 
 					<div class="container-fluid">
 					
-						<div class="row">
+						<div id="itemShowcaseRow" class="row">
 
-							<!-- Item 1 -->
-							<div class="col-sm-3 border px-0 item-box" recentlyClicked="false">
-								<div class="item-box-text" style="opacity: 0;">
-									Street:<br>
-									Price: 800€ per month<br>
-									From: via Lecco 1<br>
-									m<sup>2</sup>: 20
-								</div>
-								<img class="w-100 h-100" src="img\Lighthouse.jpg">
-							</div>
-
-							<!-- Item 2 -->
-							<div class="col-sm-3 border px-0 item-box" recentlyClicked="false">
-								<div class="item-box-text" style="opacity: 0;">
-									Street:<br>
-									Price: 800€ per month<br>
-									From: via Lecco 1<br>
-									m<sup>2</sup>: 20
-								</div>
-								<img class="w-100 h-100" src="img\Lighthouse.jpg">
-							</div>
-
-							<div class="col-sm-3 border">
-								C
-							</div>
-							<div class="col-sm-3 border">
-								D
-							</div>
 						</div>
 
 					</div>
@@ -125,6 +97,24 @@
 		<?php require CONFIG_FOLDER.'/javascriptConfiguration.php'?>
 		<script src="js/utils/URL.js"></script>
 		<script src="js/home.js"></script>
+
+		<script>
+		$(document).ready(function() {
+			$.ajax({  
+				type: "POST",
+				url: "php/search/itemResult.php",  
+				data: {},
+				dataType: "html",
+				success: function(response) {  
+					$("#itemShowcaseRow").append(response);
+				},
+				error: function(){
+					alert("Call failed");
+				} 
+			}); 
+		});
+		</script>
+
 		<script>
 			function isMobile() {
 				return screen.width < javascriptConfiguration.mobileThreshold;
