@@ -2,7 +2,14 @@ function URL() {
 
     // PRIVATE FUNCTIONS | START
     function getHost() {
-        return javascriptConfiguration.dreamHouseRootFolder;
+
+        // Check if it is local environment
+        if(location.host === "localhost") {
+            return "http://localhost/DreamHouse";
+        } else {
+            return location.host;
+        }
+        
     }
 
     function getParams() {

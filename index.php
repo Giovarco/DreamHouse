@@ -1,3 +1,5 @@
+<?php require './../environment_setup.php' ?>
+
 <!doctype html>
 <html lang="en" class="h-100">
 
@@ -69,7 +71,7 @@
 		crossorigin="anonymous"></script>
 
 		<!-- JavaScript -->
-		<script src="config/javascript.js"></script>
+		<?php require CONFIG_FOLDER.'/javascriptConfiguration.php'?>
 		<script src="js/utils/URL.js"></script>
 		<script src="js/home.js"></script>
 	</body>

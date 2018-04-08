@@ -1,13 +1,18 @@
 body {
-    background-color: #3f3d6b;
+    background-color: #3e3d50;
 }
 
 .bar {
     background-color: #131862;
 }
 
-/* .test {
-    background: url("../../img/Lighthouse.jpg") no-repeat center center fixed;
-    background-size: cover;
-    height:500px;
-} */
+.item-box {
+    position: relative;
+    color: white;
+}
+
+.item-box-text {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}

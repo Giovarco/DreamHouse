@@ -23,29 +23,29 @@
 
 	</head>
 
-	<body class="text-center h-100">
+	<body class="h-100">
 
 		<!-- Header -->
 		<?php require 'php/common/header.php';?>
 
-		<div class="container-fluid container-padding">
+		<div class="container">
 
 			<!-- Title section -->
-			<div class="row ">
-				<div class="col-3 px-0">
+			<div class="row mt-2">
+				<div class="col-sm-3 px-0 d-none d-sm-block">
 					<img class="w-100 h-100" src="https://www.dronezine.it/wp-content/uploads/2015/06/duomo-milano.jpg">
 				</div>
 
-				<div class="col-9">
+				<div class="col-sm-9">
 					<h1 id="title" class="text-white text-center">Milan</h1>
 				</div>
 			</div>
 
 			<!-- Filters column + Item showcase -->
-			<div class="row">
+			<div class="row mt-2">
 
 				<!-- Filters column -->
-				<div class="col-3 bg-white px-0">
+				<div class="col-sm-3 bg-white px-0 d-none d-sm-block">
 
 					<div class="bar text-white text-center py-2">
 						<h4>FILTERS</h4>
@@ -70,22 +70,30 @@
 				</div>
 
 				<!-- Item showcase -->
-				<div class="col-9">
-					<div class="row">
-						<div class="col-sm-3 border px-0">
-							<img class="w-100 h-100" src="img\Lighthouse.jpg">
+				<div class="col-sm-9 col-xs-12">
+
+					<div class="container-fluid">
+					
+						<div class="row">
+							<div class="col-sm-3 border px-0 item-box">
+								<div class="item-box-text" style="opacity: 0;">
+									Street:<br>
+									Price: 800€ per month<br>
+									From: via Lecco 1<br>
+									m<sup>2</sup>: 20
+								</div>
+								<img class="w-100 h-100" src="img\Lighthouse.jpg">
+							</div>
+							<div class="col-sm-3 border">B
+							</div>
+							<div class="col-sm-3 border">C
+							</div>
+							<div class="col-sm-3 border">D
+							</div>
 						</div>
-						<div class="col-sm-3 border">B
-						</div>
-						<div class="col-sm-3 border">C
-						</div>
-						<div class="col-sm-3 border">D
-						</div>
-						<div class="col-sm-3 border">E
-						</div>
-						<div class="col-sm-3 border">F
-						</div>
+
 					</div>
+					
 				</div>
 
 			</div>
@@ -93,24 +101,33 @@
 		</div>
 
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-		crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
 		crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 		crossorigin="anonymous"></script>
 
 		<!-- JavaScript -->
-		<script src="config/javascript.js"></script>
+		<?php require CONFIG_FOLDER.'/javascriptConfiguration.php'?>
 		<script src="js/utils/URL.js"></script>
 		<script src="js/home.js"></script>
 		<script>
-		$("img").hover(
+		$(".item-box").hover(
 			function() {
-				$( this ).fadeIn();
+				var itemBox = $(this);
+				var image = itemBox.children("img:first");
+				var text = itemBox.children(".item-box-text");
+
+				image.fadeTo("slow" , 0.2);
+				text.fadeTo("slow", 1);
 			},
 			function() {
-				$( this ).fadeOut();
+				var itemBox = $(this);
+				var image = itemBox.children("img:first");
+				var text = itemBox.children(".item-box-text");
+
+				image.fadeTo("slow" , 1);
+				text.fadeTo("slow", 0);
 			}
 		);
 		</script>
