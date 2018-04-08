@@ -36,7 +36,7 @@
 					<img class="w-100 h-100" src="https://www.dronezine.it/wp-content/uploads/2015/06/duomo-milano.jpg">
 				</div>
 
-				<div class="col-sm-9">
+				<div class="col-sm-9 my-auto">
 					<h1 id="title" class="text-white text-center">Milan</h1>
 				</div>
 			</div>
