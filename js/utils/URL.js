@@ -5,7 +5,7 @@ function URL() {
 
         // Check if it is local environment
         if(location.host === "localhost") {
-            return "http://localhost/DreamHouse";
+            return "localhost/DreamHouse";
         } else {
             return location.host;
         }
@@ -36,15 +36,15 @@ function URL() {
     this.getURL = function() {
 
         if(path == "") {
-            return host;
+            return protocol + "//" + host;
         } else {
 
             var params = getParams();
             
             if(params == null) {
-                return host + "/" + path;
+                return protocol + "//" + host + "/" + path;
             } else {
-                return host + "/" + path + "?" + params;
+                return protocol + "//" + host + "/" + path + "?" + params;
             }
 
         }
@@ -61,7 +61,8 @@ function URL() {
     // PRIVILEGED FUNCTIONS | END
 
     // PRIVATE VARIABLES | START
-    var host = getHost(); // E.G. "giovarco.heliohost.org"
+    var protocol = document.location.protocol;
+    var host = getHost();
     var path = "";
     var paramList = {};
     // PRIVATE VARIABLES | END
