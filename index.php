@@ -32,7 +32,7 @@
 		<div class="container">
 
 			<!-- Title -->
-			<div class="row marginTop150px">
+			<div class="row firstRowMarginTop">
 				<div class="col">
 					<h1 id="title" class="text-white">Let's Find You a Great Apartment.</h1>
 				</div>
