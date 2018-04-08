@@ -75,7 +75,9 @@
 					<div class="container-fluid">
 					
 						<div class="row">
-							<div class="col-sm-3 border px-0 item-box">
+
+							<!-- Item 1 -->
+							<div class="col-sm-3 border px-0 item-box" recentlyClicked="false">
 								<div class="item-box-text" style="opacity: 0;">
 									Street:<br>
 									Price: 800€ per month<br>
@@ -84,11 +86,23 @@
 								</div>
 								<img class="w-100 h-100" src="img\Lighthouse.jpg">
 							</div>
-							<div class="col-sm-3 border">B
+
+							<!-- Item 2 -->
+							<div class="col-sm-3 border px-0 item-box" recentlyClicked="false">
+								<div class="item-box-text" style="opacity: 0;">
+									Street:<br>
+									Price: 800€ per month<br>
+									From: via Lecco 1<br>
+									m<sup>2</sup>: 20
+								</div>
+								<img class="w-100 h-100" src="img\Lighthouse.jpg">
 							</div>
-							<div class="col-sm-3 border">C
+
+							<div class="col-sm-3 border">
+								C
 							</div>
-							<div class="col-sm-3 border">D
+							<div class="col-sm-3 border">
+								D
 							</div>
 						</div>
 
@@ -112,24 +126,56 @@
 		<script src="js/utils/URL.js"></script>
 		<script src="js/home.js"></script>
 		<script>
-		$(".item-box").hover(
-			function() {
-				var itemBox = $(this);
-				var image = itemBox.children("img:first");
-				var text = itemBox.children(".item-box-text");
-
-				image.fadeTo("slow" , 0.2);
-				text.fadeTo("slow", 1);
-			},
-			function() {
-				var itemBox = $(this);
-				var image = itemBox.children("img:first");
-				var text = itemBox.children(".item-box-text");
-
-				image.fadeTo("slow" , 1);
-				text.fadeTo("slow", 0);
+			function isMobile() {
+				return screen.width < javascriptConfiguration.mobileThreshold;
 			}
-		);
+		</script>
+		<script>
+		$(document).ready(function() {
+
+			var itemBoxes = $(".item-box");
+
+			itemBoxes.click(function() {
+				if (isMobile()) {
+
+					var thisItemBox = $(this);
+					var wasRecentlyClicked = thisItemBox.attr("recentlyClicked") == "true";
+
+					if(wasRecentlyClicked) {
+						console.log("Salta all'annuncio 1");
+					} else {
+						thisItemBox.attr("recentlyClicked", true);
+					}
+
+				} else {
+					console.log("Salta all'annuncio 2");
+				}
+			});
+
+			itemBoxes.hover(
+				function() {
+					var itemBox = $(this);
+					var image = itemBox.children("img:first");
+					var text = itemBox.children(".item-box-text");
+
+					image.fadeTo("slow" , 0.2);
+					text.fadeTo("slow", 1);
+				},
+				function() {
+
+					itemBoxes.attr("recentlyClicked", false);
+
+					var itemBox = $(this);
+					var image = itemBox.children("img:first");
+					var text = itemBox.children(".item-box-text");
+
+					image.fadeTo("slow" , 1);
+					text.fadeTo("slow", 0);
+				}
+			);
+
+		});
+		
 		</script>
 	</body>
 
