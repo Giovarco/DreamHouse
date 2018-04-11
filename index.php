@@ -47,8 +47,7 @@
 					<div id="search" class="enterALocationSearchBox align-items-center">
 						<input type="search" onchange="javascript:Home.confirmSelection();" class="text-center rounded w-100" list="cities" placeholder="Enter a Location here">
 						<datalist id="cities">
-							<option value="Milan">
-							<option value="Rome">
+							<?php require "php/index/cityOptions.php" ?>
 						</datalist>
 					</div>
 				</div>
