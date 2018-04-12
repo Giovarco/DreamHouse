@@ -1,7 +1,7 @@
 <?php require './../environment_setup.php' ?>
 
 <!doctype html>
-<html lang="en" class="h-100">
+<html lang="en">
 
 	<head>
 
@@ -18,7 +18,7 @@
 
 	</head>
 
-	<body class="text-center h-100">
+	<body class="text-center">
 
 		<!-- Header -->
 		<?php require 'php/common/header.php';?>
