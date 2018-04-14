@@ -21,9 +21,9 @@ function Search() {
                 $("#itemShowcaseRow").append(response);
                 initializeItemShowcase();
             },
-            error: function(){
-                alert("Call failed");
-            } 
+            error: function() {  
+                alert("Call failed"); 
+            }
         });
     }
 
