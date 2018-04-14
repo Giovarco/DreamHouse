@@ -10,7 +10,7 @@ $(document).ready(function() {
 function Search() {
     
     // PRIVATE FUNCTIONS | START
-    // Request item showcase by AJAX
+    // This function requests the item showcase by AJAX
     function requestItemShowcase() {
         $.ajax({  
             type: "POST",
@@ -27,7 +27,7 @@ function Search() {
         });
     }
 
-    // Initialize item showcase
+    // This function initialize item showcase, so they have their intended behaviour with the user
     function initializeItemShowcase() {
 
         // Get all item boxes

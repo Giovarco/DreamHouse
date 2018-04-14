@@ -9,10 +9,10 @@
     // Load classes
     require PHP_FOLDER."/classes/View/SearchItemShowcaseView.php";
 
-    // $ItemList contains the whole list of apartments
+    // Get items to show
     $itemList = new ItemList();
 
-    //
+    // Print HTML
     $searchItemShowcaseView = new SearchItemShowcaseView($itemList);
     echo $searchItemShowcaseView->getHtml();
 

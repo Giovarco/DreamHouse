@@ -1,3 +1,4 @@
+// URL class - This class is an utility class to create URL
 function URL() {
 
     // PRIVATE FUNCTIONS | START
@@ -12,6 +13,10 @@ function URL() {
         
     }
 
+    /*
+        This functions returns a string that contains parameters and their relative values.
+        This string will be attached to URL.
+    */
     function getParams() {
 
         var paramString = "";
@@ -26,6 +31,7 @@ function URL() {
         if(paramString == "") {
             return null;
         } else {
+            // Remove last & from returned value
             return paramString.substring(0, paramString.length - 1);
         }
         
@@ -61,7 +67,7 @@ function URL() {
     // PRIVILEGED FUNCTIONS | END
 
     // PRIVATE VARIABLES | START
-    var protocol = document.location.protocol;
+    var protocol = document.location.protocol; // e.g. https:
     var host = getHost();
     var path = "";
     var paramList = {};

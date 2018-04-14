@@ -22,6 +22,7 @@ function Home() {
     // PRIVATE FUNCTIONS | END
 
     // PRIVILEGED FUNCTIONS | START
+    // This function is called when user click a city name and want to confirm his selection
     this.confirmSelection = function() {
 
         var enteredCity = cityInputObj.val();

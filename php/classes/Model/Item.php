@@ -1,5 +1,6 @@
 <?php
 
+    // Item class - This class basically represents an apartment-like items
     class Item {
 
         private $address;
