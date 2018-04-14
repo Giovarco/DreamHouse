@@ -4,7 +4,7 @@
     require './../../../environment_setup.php';
 
     // Load classes
-    require PHP_FOLDER."/classes/ItemList.php";
+    require PHP_FOLDER."/classes/Model/ItemList.php";
     
     // Load classes
     require PHP_FOLDER."/classes/View/SearchItemShowcaseView.php";

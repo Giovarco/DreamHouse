@@ -1,7 +1,7 @@
 <?php
 
     // Load item class
-    require PHP_FOLDER."/classes/Item.php";
+    require PHP_FOLDER."/classes/Model/Item.php";
 
     class ItemList {
 
