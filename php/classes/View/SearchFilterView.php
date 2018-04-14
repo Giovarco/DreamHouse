@@ -18,16 +18,16 @@
             foreach ($itemArray as $item) { 
 
                 // Extract relevant information from row
-                $address = $item->getCategory();
+                $category = $item->getCategory();
 
                 // If a new category is found, print a new filter checkbox
-                if($this->isNewCategory($address)) {
+                if($this->isNewCategory($category)) {
 
                     // Output HTML
                     array_push($this->html, '<div class="checkbox">');
                         array_push($this->html, '<label>');
                             array_push($this->html, '<input type="checkbox" value="">');
-                            array_push($this->html, $address);
+                            array_push($this->html, "&nbsp".$category);
                         array_push($this->html, '</label>');
                     array_push($this->html, '</div>');
 
@@ -41,13 +41,17 @@
 
         }
 
-        function isNewCategory($address) {
+        /*
+        This function returns true if a new category is found, false otherwise.
+        Moreover it keeps track of all unique categories found.
+        */
+        function isNewCategory($category) {
 
             // If a new category is found, add that category to $categoryFound
-            if(in_array($address, $this->categoryFound)) {
+            if(in_array($category, $this->categoryFound)) {
                 return false;
             } else {
-                array_push($this->categoryFound, $address);
+                array_push($this->categoryFound, $category);
                 return true;
             }
 

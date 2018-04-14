@@ -1,7 +1,7 @@
 <?php
     // Load classes
-    require PHP_FOLDER."/classes/Model/ItemList.php";
-    require PHP_FOLDER."/classes/View/SearchFilterView.php";
+    require_once PHP_FOLDER."/classes/Model/ItemList.php";
+    require_once PHP_FOLDER."/classes/View/SearchFilterView.php";
 
     // Get items to show
     $itemList = isset($itemList) ? $itemList : new ItemList();

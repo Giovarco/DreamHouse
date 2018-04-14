@@ -17,3 +17,8 @@ body {
     top: 8px;
     left: 16px;
 }
+
+#mobileFilters {
+    color: white;
+    font-size: 30px;
+}
