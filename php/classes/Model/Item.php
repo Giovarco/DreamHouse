@@ -8,6 +8,7 @@
         private $m2;
         private $imageFileName;
         private $availabilityDate;
+        private $category;
 
         // Constructor
         function __construct($itemRow) {
@@ -18,7 +19,7 @@
             $this->m2 = $itemRow['SQUARE_METER'];
             $this->imageFileName = $itemRow['IMAGE_FILE_NAME'];
             $this->availabilityDate = $itemRow['AVAILABILITY_DATE'];
-
+            $this->category = $itemRow['CATEGORY'];
         }
 
         // Getters
@@ -42,6 +43,9 @@
             return $this->availabilityDate;
         }
 
+        public function getCategory() {
+            return $this->category;
+        }
     }
 
 ?>
