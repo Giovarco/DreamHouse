@@ -17,7 +17,7 @@ function Home() {
         }
         
     function getCityInput() {
-        return $("input:first");
+        return $("input[type=search]:first");
     }
     // PRIVATE FUNCTIONS | END
 
