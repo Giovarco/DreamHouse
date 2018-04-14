@@ -16,22 +16,11 @@
 
             </a>
 
-            <button class="navbar-toggler d-block d-sm-none" type="button" data-toggle="collapse" data-target="#mobileFilters" aria-controls="navbarHeader" aria-expanded="true" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <?php require PHP_FOLDER."/search/navBarToggler.php" ?>
 
         </div>
     </div>
 
-    <!-- Mobile filters -->
-    <div id="mobileFilters" class="collapse bg-dark">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <?php require PHP_FOLDER."/search/searchFilters.php" ?>
-                <div>
-            </div>
-        </div>
-    </div>
+    <?php require PHP_FOLDER."/search/searchMobileFilters.php" ?>
 
 </header>

@@ -33,6 +33,7 @@ function Home() {
             var url = new URL();
             url.addPath(searchPagePath);
             url.addParameter("city", enteredCity);
+            url.addParameter("page", "Search");
 
             // Redirect
             window.location.href = url.getURL();
