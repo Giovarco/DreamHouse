@@ -3,6 +3,10 @@
 	letter-spacing: 1px;
 }
 
+html, body {
+	height: 100% !important;
+}
+
 #title {
 	font-size: 80px;
 }
