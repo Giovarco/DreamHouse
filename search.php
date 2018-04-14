@@ -90,6 +90,7 @@
 
 		<!-- JavaScript -->
 		<script src="config/javascriptConfiguration.js"></script>
+		<script src="js/utils/LoadingScreenHandler.js"></script>
 		<script src="js/utils/URL.js"></script>
 		<script src="js/search.js"></script>
 
@@ -98,7 +99,7 @@
 				return screen.width < javascriptConfiguration.mobileThreshold;
 			}
 		</script>
-		
+
 	</body>
 
 </html>

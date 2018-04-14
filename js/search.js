@@ -12,19 +12,39 @@ function Search() {
     // PRIVATE FUNCTIONS | START
     // This function requests the item showcase by AJAX
     function requestItemShowcase() {
+
+        // Activate loading screen
+        loadingScreenHandler.showLoadingScreen();
+
+        // Call AJAX
         $.ajax({  
             type: "POST",
             url: "php/search/itemResult.php",  
             data: {},
             dataType: "html",
             success: function(response) {
+
+                // Append received HTML
                 $("#itemShowcaseRow").append(response);
+
+                // Initialize item showcase
                 initializeItemShowcase();
+
+                // Deactivate loading screen
+                loadingScreenHandler.hideLoadingScreen();
+
             },
-            error: function() {  
-                alert("Call failed"); 
+            error: function() {
+
+                // Deactivate loading screen
+                loadingScreenHandler.hideLoadingScreen();
+
+                // Prompt error
+                alert("Call failed");
+
             }
         });
+
     }
 
     // This function initialize item showcase, so they have their intended behaviour with the user
