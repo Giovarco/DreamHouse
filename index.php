@@ -58,7 +58,7 @@
 		<?php require "php/common/jsForBootstrap.php"?>
 
 		<!-- JavaScript -->
-		<?php require CONFIG_FOLDER.'/javascriptConfiguration.php'?>
+		<script src="config/javascriptConfiguration.js"></script>
 		<script src="js/utils/URL.js"></script>
 		<script src="js/home.js"></script>
 	</body>

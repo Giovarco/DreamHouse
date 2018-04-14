@@ -5,8 +5,8 @@ function URL() {
     function getHost() {
 
         // Check if it is local environment
-        if(location.host === "localhost") {
-            return "localhost/DreamHouse";
+        if(location.host === javascriptConfiguration.localhost) {
+            return javascriptConfiguration.localhost+"/DreamHouse";
         } else {
             return location.host;
         }
