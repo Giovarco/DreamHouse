@@ -2,15 +2,18 @@
 
     class SearchItemShowcaseView {
 
-        private $html;
+        private $itemList;
 
+        // Constructor
         function __construct($itemList) {
+            $this->itemList = $itemList;
+        }
 
-            // Initialize private members
-            $this->html = array();
+        // This function prints the intended HTML
+        public function printHtml() {
 
             // Get item array
-            $itemArray =  $itemList->getItemList();
+            $itemArray =  $this->itemList->getItemList();
             
             // Interate over all rows
             foreach ($itemArray as $item) 
@@ -23,22 +26,18 @@
                 $availabilityDate = $item->getAvailabilityDate();
 
                 // Output HTML
-                array_push($this->html, '<div class="col-sm-4 border px-0 item-box" recentlyClicked="false">');
-                    array_push($this->html, '<div class="item-box-text" style="opacity: 0;">');
-                        array_push($this->html, 'Street: '.$address.'<br>');
-                        array_push($this->html, 'Price: '.$price.'€ per month<br>');
-                        array_push($this->html, 'From: '.$availabilityDate.'<br>');
-                        array_push($this->html, 'm<sup>2</sup>: '.$m2);
-                    array_push($this->html, '</div>');
-                    array_push($this->html, "<img class='w-100 h-100' src='img/items/$imageFileName'>");
-                array_push($this->html, '</div>');
+                echo '<div class="col-sm-4 border px-0 item-box" recentlyClicked="false">';
+                    echo '<div class="item-box-text" style="opacity: 0;">';
+                        echo 'Street: '.$address.'<br>';
+                        echo 'Price: '.$price.'€ per month<br>';
+                        echo 'From: '.$availabilityDate.'<br>';
+                        echo 'm<sup>2</sup>: '.$m2;
+                    echo '</div>';
+                    echo "<img class='w-100 h-100' src='img/items/$imageFileName'>";
+                echo '</div>';
 
-            } 
+            }
 
-        }
-
-        public function getHtml() {
-            return implode("", $this->html);
         }
     }
 

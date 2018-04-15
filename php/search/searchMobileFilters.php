@@ -11,7 +11,7 @@
 
         // Print HTML
         $searchMobileFilterView = new SearchMobileFilterView($itemList);
-        echo $searchMobileFilterView->getHtml();
+        echo $searchMobileFilterView->printHtml();
 
     }
 ?>

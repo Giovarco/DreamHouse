@@ -2,43 +2,13 @@
 
     class SearchFilterView {
 
-        private $html;
+        private $itemList;
         private $categoryFound;
 
+        // Constructor
         function __construct($itemList) {
-
-            // Initialize private members
-            $this->html = array();
             $this->categoryFound = array();
-
-            // Get item array
-            $itemArray =  $itemList->getItemList();
-            
-            // Interate over all rows
-            foreach ($itemArray as $item) { 
-
-                // Extract relevant information from row
-                $category = $item->getCategory();
-
-                // If a new category is found, print a new filter checkbox
-                if($this->isNewCategory($category)) {
-
-                    // Output HTML
-                    array_push($this->html, '<div class="checkbox">');
-                        array_push($this->html, '<label>');
-                            array_push($this->html, '<input type="checkbox" value="">');
-                            array_push($this->html, "&nbsp".$category);
-                        array_push($this->html, '</label>');
-                    array_push($this->html, '</div>');
-
-                }
-
-            } 
-
-            // Store the HTML
-            $finalHtml = implode("", $this->html);
-            $this->html = $finalHtml;
-
+            $this->itemList = $itemList;
         }
 
         /*
@@ -57,9 +27,36 @@
 
         }
 
-        public function getHtml() {
-            return $this->html;
+        // This function prints the intended HTML
+        public function printHtml() {
+            
+            // Get item array
+            $itemArray =  $this->itemList->getItemList();
+                        
+            // Interate over all rows
+            foreach ($itemArray as $item) { 
+
+                // Extract relevant information from row
+                $category = $item->getCategory();
+
+                // If a new category is found, print a new filter checkbox
+                if($this->isNewCategory($category)) {
+
+                    // Output HTML
+                    echo '<div class="checkbox">';
+                        echo '<label>';
+                            echo '<input type="checkbox" value="">';
+                            echo "&nbsp".$category;
+                        echo '</label>';
+                    echo '</div>';
+
+                }
+
+            } 
+
         }
+
+        
     }
 
 ?>
