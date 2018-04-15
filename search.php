@@ -81,7 +81,7 @@
 		<script src="config/javascriptConfiguration.js"></script>
 		<script src="js/utils/LoadingScreenHandler.js"></script>
 		<script src="js/utils/URL.js"></script>
-		<script src="js/search.js"></script>
+		<script src="js/Search.js"></script>
 
 		<script>
 			function isMobile() {

@@ -60,7 +60,7 @@
 		<!-- JavaScript -->
 		<script src="config/javascriptConfiguration.js"></script>
 		<script src="js/utils/URL.js"></script>
-		<script src="js/home.js"></script>
+		<script src="js/Home.js"></script>
 	</body>
 
 </html>
