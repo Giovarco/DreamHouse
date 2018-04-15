@@ -12,7 +12,7 @@ function LoadingScreenHandler() {
 
         // Generate HTML
         html.push("<div id='loadingScreen'>");
-            html.push("Loading...");
+            html.push("<img src='img/House.gif' class='inverted'>");
         html.push("</div>");
 
         // Return html
