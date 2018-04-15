@@ -20,7 +20,15 @@
                 array_push($this->html, '<div class="container">');
                     array_push($this->html, '<div class="row">');
                         array_push($this->html, '<div class="col">');
+                        
+                            // Filter bar
+                            array_push($this->html, '<div style="background-color:white; color: #131862; margin-left: -15px; margin-right: -15px;" class="text-center">');
+                                array_push($this->html, 'Filters');
+                            array_push($this->html, '</div>');
+
+                            // Filter checkboxes
                             array_push($this->html, $filterHtml);
+
                         array_push($this->html, '<div>');
                     array_push($this->html, '</div>');
                 array_push($this->html, '</div>');
