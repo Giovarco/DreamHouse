@@ -15,7 +15,7 @@
 
         // This function prints the intended HTML
         public function printHtml() {
-            echo '<div id="mobileFilters" class="collapse bg-dark">';
+            echo '<div id="mobileFilterWindow" class="collapse bg-dark">';
                 echo '<div class="container">';
                     echo '<div class="row">';
                         echo '<div class="col">';

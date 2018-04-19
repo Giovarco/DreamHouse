@@ -46,7 +46,7 @@
 			<div class="row mt-2">
 
 				<!-- Filters column -->
-				<div class="col-sm-3 bg-white px-0 d-none d-sm-block">
+				<div id="filterWindow" class="col-sm-3 bg-white px-0 d-none d-sm-block">
 
 					<div class="bar text-white text-center py-2">
 						<h4>FILTERS</h4>

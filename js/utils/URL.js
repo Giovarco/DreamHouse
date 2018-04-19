@@ -74,3 +74,21 @@ function URL() {
     // PRIVATE VARIABLES | END
 
 }
+
+// STATIC FUNCTIONS | START
+URL.getParameterFromURL = function(paramName) {
+    var queryString = window.location.search; // E.G.: "?city=Milan&page=Search"
+    var rawParams = queryString.substring(1); // E.G.: "city=Milan&page=Search"
+    var paramCouples = rawParams.split("&"); // E.G.: ["city=Milan", "page=Search"]
+
+    for(var i=0; i < paramCouples.length; i++) {
+        var keyValue = paramCouples[i].split("="); // E.G.: ["city", "Milan"]
+        var key = keyValue[0]; // E.G.: "city"
+        if (key == paramName) {
+            return keyValue[1]; // E.G.: "Milan"
+        }
+    }
+
+    return null;
+}
+// STATIC FUNCTIONS | END

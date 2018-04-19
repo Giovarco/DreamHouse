@@ -3,24 +3,67 @@ var search = new Search();
 
 // When document is ready, request item showcase depending on passed parameters
 $(document).ready(function() {
-    search.updateItemShowcase();
+    search.attachFilterCheckboxHandler();
+    search.updateItemShowcase(Search.prototype.filterByCity);
 });
 
 // Search class
 function Search() {
-    
+
     // PRIVATE FUNCTIONS | START
-    // This function requests the item showcase by AJAX
-    function requestItemShowcase() {
+    function getFilterCheckboxValues() {
+
+        var filters = {};
+        var filterWindowId;
+
+        if(isMobile()) {
+            filterWindowId = "mobileFilterWindow";
+        } else {
+            filterWindowId = "filterWindow";
+        }
+
+        var checkBoxes = $("#"+filterWindowId).find("input[type=checkbox]");
+
+        checkBoxes.each(function() {
+            var key = $(this).attr("name");
+            var value = $(this).is(':checked');
+            filters[key] = value;
+        });
+
+        return filters;
+
+    }
+
+    /*
+    This function requests the item showcase by AJAX
+        Parameters:
+            input : String -> Valid values:
+                Search.prototype.filterByCity : Update item showcase based only based on city
+                Search.prototype.filterByCityAndFilters : Update item showcase based on city and filters
+    */
+    function requestItemShowcase(input) {
+
 
         // Activate loading screen
         loadingScreenHandler.showLoadingScreen();
 
+        // Prepare payload
+        var data = {};
+
+        if(input === Search.prototype.filterByCity) {
+            data.city = URL.getParameterFromURL("city");
+        } else if(input === Search.prototype.filterByCityAndFilters) {
+            data.city = URL.getParameterFromURL("city");
+            data.filters = JSON.stringify( getFilterCheckboxValues() );
+        } else {
+            throw new Error("Invalid input parameters");
+        }
+
         // Call AJAX
         $.ajax({  
-            type: "POST",
-            url: "php/search/itemResult.php",  
-            data: {},
+            type: "GET",
+            url: "php/search/itemResult.php",
+            data: data,
             dataType: "html",
             success: function(response) {
 
@@ -109,17 +152,23 @@ function Search() {
     // PRIVATE FUNCTIONS | END
 
     // PRIVILEGED FUNCTIONS | START
-    /*
-        Description: Update item showcase
-        Parameters:
-            input : String | Valid values
-                "Filters" : Update item showcase based on filters
-                "Parameters" : Update item showcase based on Parameters
-    */
+    // This function attach the handler that has to be executed when a filter checkbox is checked
+    this.attachFilterCheckboxHandler = function() {
+        $("input[type=checkbox]").change(function() {
+            search.updateItemShowcase(Search.prototype.filterByCityAndFilters);
+        });
+    }
+
+    // This function updates item showcase
     this.updateItemShowcase = function(input) {
         clearItemShowcase();
-        requestItemShowcase();
+        requestItemShowcase(input);
     }
     // PRIVILEGED FUNCTIONS | END
     
 }
+
+// STATIC VARIABLES | START
+Search.prototype.filterByCity = 0;
+Search.prototype.filterByCityAndFilters = 1;
+// STATIC VARIABLES | END

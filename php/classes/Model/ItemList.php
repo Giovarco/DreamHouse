@@ -9,11 +9,17 @@
         // List of items
         private $itemList;
 
+        // Request parameters
+        private $inputCity;
+        private $inputFilters;
+
         // Constructor
         function __construct() {
 
             // Initialize private members
             $this->itemList = array();
+            $this->inputCity = $_GET['city'];
+            $this->inputFilters = isset($_GET['filters']) ? json_decode($_GET['filters'], true) : null;
 
             try { 
 
@@ -24,6 +30,40 @@
                 // Get error reports
                 $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
 
+                $sql = $connection->prepare( $this->getQuery() );
+
+                if($this->isByFilterQuery()) {
+                    // Filtra per tutto
+                    echo '<pre>'.print_r($this->inputFilters).'</pre>';
+                } else {
+                    $sql->bindParam(':city', $this->inputCity, PDO::PARAM_STR);
+                }
+
+                // esecuzione del prepared statement
+                $sql->execute();
+
+                if($sql->rowCount() > 0){
+
+                    // creazione di un'array contenente il risultato
+                    $itemRows = $sql->fetchAll();
+
+                     // Interate over all rows
+                    foreach ($itemRows as $itemRow) 
+                    {
+                        // Create an item object
+                        $item = new Item($itemRow);
+
+                        // Fill the item array
+                        array_push($this->itemList, $item);
+                    }
+
+                  }else{
+                    echo "Nessun record corrispondente alla richiesta.";
+                  }
+                  // chiusura della connessione
+                  $connessione = null;
+
+                /*
                 // Query
                 $itemRows = $connection->query("SELECT * FROM announcements");
 
@@ -39,11 +79,26 @@
 
                 // Close connection
                 $connection = null; 
-                    
+                */
             } catch(PDOException $e)  {  
                 throw new Exception( $e->getMessage() );
             } 
 
+        }
+
+        private function getQuery() {
+
+            if($this->isByFilterQuery()) {
+                // Filtra per tutto
+            } else {
+                return "SELECT * FROM announcements WHERE CITY = :city";
+            }
+
+            // SELECT * FROM :city WHERE CATEGORY IN (X, Y, ...)
+        }
+
+        private function isByFilterQuery() {
+            return $this->inputFilters != null;
         }
 
         // Expose item list

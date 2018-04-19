@@ -45,7 +45,7 @@
                     // Output HTML
                     echo '<div class="checkbox">';
                         echo '<label>';
-                            echo '<input type="checkbox" value="">';
+                            echo '<input type="checkbox" name="'.$category.'" value="">';
                             echo "&nbsp".$category;
                         echo '</label>';
                     echo '</div>';
