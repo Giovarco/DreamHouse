@@ -30,11 +30,13 @@
                 // Get error reports
                 $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
 
+                // Get the right query to bind
                 $sql = $connection->prepare( $this->getQuery() );
 
+                // Bind city parameter
                 $sql->bindParam(':city', $this->inputCity, PDO::PARAM_STR);
 
-                // esecuzione del prepared statement
+                // Execute prepared statement
                 $sql->execute();
 
                 if($sql->rowCount() > 0){
@@ -53,59 +55,58 @@
                     }
 
                   }else{
-                    echo "Nessun record corrispondente alla richiesta.";
+                    throw new Exception("No records found");
                   }
-                  // chiusura della connessione
-                  $connessione = null;
 
-                /*
-                // Query
-                $itemRows = $connection->query("SELECT * FROM announcements");
+                  // Close connection
+                  $connection = null;
 
-                // Interate over all rows
-                foreach ($itemRows as $itemRow) 
-                {
-                    // Create an item object
-                    $item = new Item($itemRow);
-
-                    // Fill the item array
-                    array_push($this->itemList, $item);
-                }
-
-                // Close connection
-                $connection = null; 
-                */
             } catch(PDOException $e)  {  
                 throw new Exception( $e->getMessage() );
             } 
 
         }
 
+        // This function returns the correct query depending on input data
         private function getQuery() {
 
+            // Check if the query depends on filters
             if($this->isByFilterQuery()) {
-                
-                $categoriesToSearch = array();
-                foreach($this->inputFilters as $category => $checked) {
-
-                    if($checked == true) {
-                        $categoryWithQuotes = "'".$category."'";
-                        array_push($categoriesToSearch, $categoryWithQuotes);
-                    }
-                    
-                }
-                if(count($categoriesToSearch) == 0) {
-                    return "SELECT * FROM announcements WHERE CITY = :city";
-                } else {
-                    return "SELECT * FROM announcements WHERE CITY = :city AND CATEGORY IN (".implode(",", $categoriesToSearch).")";
-                }
+                return $this->getByFilterQuery();
             } else {
                 return "SELECT * FROM announcements WHERE CITY = :city";
             }
 
-            // SELECT * FROM :city WHERE CATEGORY IN (X, Y, ...)
         }
 
+        // This function returns a query depending on input filters
+        private function getByFilterQuery() {
+
+            // Categories to search in the database
+            $categoriesToSearch = array();
+
+            // Iterate on input filters
+            foreach($this->inputFilters as $category => $checked) {
+
+                // Add a category to $categoriesToSearch if and only if it is checked in front-end
+                if($checked == true) {
+                    $categoryWithQuotes = "'".$category."'"; // E.G.: "'Apartment'"
+                    array_push($categoriesToSearch, $categoryWithQuotes);
+                }
+                
+            }
+
+            // If $categoriesToSearch is empty, it means that no checkbox is checked in front-end
+            if(count($categoriesToSearch) == 0) {
+                return "SELECT * FROM announcements WHERE CITY = :city";
+            } else {
+                $inSet = implode(",", $categoriesToSearch);
+                return "SELECT * FROM announcements WHERE CITY = :city AND CATEGORY IN (".$inSet.")";
+            }
+
+        }
+
+        // This function returns true if input filters are given as inputs
         private function isByFilterQuery() {
             return $this->inputFilters != null;
         }
