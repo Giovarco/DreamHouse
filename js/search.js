@@ -10,23 +10,31 @@ $(document).ready(function() {
 // Search class
 function Search() {
 
+    // PRIVATE VARIABLES | START
+    var fadeSpeed = javascriptConfiguration.itemFadeSpeed;
+    // PRIVATE VARIABLES | END
+
     // PRIVATE FUNCTIONS | START
     function getFilterCheckboxValues() {
 
+        // Local variables
         var filters = {};
         var filterWindowId;
 
+        // Choose the right filter window id
         if(isMobile()) {
             filterWindowId = "mobileFilterWindow";
         } else {
             filterWindowId = "filterWindow";
         }
 
+        // Get all checkboxes
         var checkBoxes = $("#"+filterWindowId).find("input[type=checkbox]");
 
+        // Populate "filters" variable
         checkBoxes.each(function() {
-            var key = $(this).attr("name");
-            var value = $(this).is(':checked');
+            var key = $(this).attr("name"); // E.G.: Apartment
+            var value = $(this).is(':checked'); // E.G.: true
             filters[key] = value;
         });
 
@@ -43,7 +51,6 @@ function Search() {
     */
     function requestItemShowcase(input) {
 
-
         // Activate loading screen
         loadingScreenHandler.showLoadingScreen();
 
@@ -51,15 +58,15 @@ function Search() {
         var data = {};
 
         if(input === Search.prototype.filterByCity) {
-            data.city = URL.getParameterFromURL("city");
+            data.city = URL.getParameterFromURL("city"); // E.G.: Milan
         } else if(input === Search.prototype.filterByCityAndFilters) {
-            data.city = URL.getParameterFromURL("city");
+            data.city = URL.getParameterFromURL("city"); // E.G.: Milan
             data.filters = JSON.stringify( getFilterCheckboxValues() );
         } else {
             throw new Error("Invalid input parameters");
         }
 
-        // Call AJAX
+        // Send data by AJAX
         $.ajax({  
             type: "GET",
             url: "php/search/itemResult.php",
@@ -105,13 +112,13 @@ function Search() {
                 var wasRecentlyClicked = (thisItemBox.attr("recentlyClicked") == "true");
     
                 if(wasRecentlyClicked) {
-                    console.log("Salta all'annuncio (Mobile)");
+                    console.log("Jump to announcement (Mobile)");
                 } else {
                     thisItemBox.attr("recentlyClicked", true);
                 }
 
             } else {
-                console.log("Salta all'annuncio (Desktop)");
+                console.log("Jump to announcement (Desktop)");
             }
 
         });
@@ -125,8 +132,8 @@ function Search() {
                 var image = itemBox.children("img:first");
                 var text = itemBox.children(".item-box-text");
     
-                image.fadeTo("slow" , 0.2);
-                text.fadeTo("slow", 1);
+                image.fadeTo(fadeSpeed , 0.2);
+                text.fadeTo(fadeSpeed, 1);
             },
 
             // Show image and hide text when mouse leaves the item box
@@ -138,8 +145,8 @@ function Search() {
                 var image = itemBox.children("img:first");
                 var text = itemBox.children(".item-box-text");
     
-                image.fadeTo("slow" , 1);
-                text.fadeTo("slow", 0);
+                image.fadeTo(fadeSpeed , 1);
+                text.fadeTo(fadeSpeed, 0);
 
             }
         );
