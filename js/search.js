@@ -84,13 +84,13 @@ function Search() {
                 loadingScreenHandler.hideLoadingScreen();
 
             },
-            error: function() {
+            error: function(jqXHR, textStatus, errorThrown) {
 
                 // Deactivate loading screen
                 loadingScreenHandler.hideLoadingScreen();
 
                 // Prompt error
-                alert("Call failed");
+                alert(errorThrown);
 
             }
         });

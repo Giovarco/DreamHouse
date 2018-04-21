@@ -23,7 +23,7 @@
 
     } catch(PDOException $e)  { 
         // notifica in caso di errore nel tentativo di connessione 
-        echo $e->getMessage();
+        ErrorThrower::send500Error("Database connection error: ".$e->getMessage());
     }
 
 ?>

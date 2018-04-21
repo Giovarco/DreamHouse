@@ -44,7 +44,7 @@
                     // creazione di un'array contenente il risultato
                     $itemRows = $sql->fetchAll();
 
-                     // Interate over all rows
+                        // Interate over all rows
                     foreach ($itemRows as $itemRow) 
                     {
                         // Create an item object
@@ -54,15 +54,15 @@
                         array_push($this->itemList, $item);
                     }
 
-                  }else{
-                    throw new Exception("No records found");
-                  }
+                    }else{
+                        ErrorThrower::send404Error("No records found");
+                    }
 
                   // Close connection
                   $connection = null;
 
-            } catch(PDOException $e)  {  
-                throw new Exception( $e->getMessage() );
+            } catch(PDOException $e)  {
+                ErrorThrower::send500Error("Database connection error: ".$e->getMessage());
             } 
 
         }
