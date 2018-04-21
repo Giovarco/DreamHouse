@@ -32,12 +32,7 @@
 
                 $sql = $connection->prepare( $this->getQuery() );
 
-                if($this->isByFilterQuery()) {
-                    // Filtra per tutto
-                    echo '<pre>'.print_r($this->inputFilters).'</pre>';
-                } else {
-                    $sql->bindParam(':city', $this->inputCity, PDO::PARAM_STR);
-                }
+                $sql->bindParam(':city', $this->inputCity, PDO::PARAM_STR);
 
                 // esecuzione del prepared statement
                 $sql->execute();
@@ -89,7 +84,21 @@
         private function getQuery() {
 
             if($this->isByFilterQuery()) {
-                // Filtra per tutto
+                
+                $categoriesToSearch = array();
+                foreach($this->inputFilters as $category => $checked) {
+
+                    if($checked == true) {
+                        $categoryWithQuotes = "'".$category."'";
+                        array_push($categoriesToSearch, $categoryWithQuotes);
+                    }
+                    
+                }
+                if(count($categoriesToSearch) == 0) {
+                    return "SELECT * FROM announcements WHERE CITY = :city";
+                } else {
+                    return "SELECT * FROM announcements WHERE CITY = :city AND CATEGORY IN (".implode(",", $categoriesToSearch).")";
+                }
             } else {
                 return "SELECT * FROM announcements WHERE CITY = :city";
             }
