@@ -8,6 +8,6 @@
 
     // Print HTML
     $searchFilterView = new SearchFilterView($itemList);
-    echo $searchFilterView->printHtml();
+    $searchFilterView->printHtml();
 ?>
 

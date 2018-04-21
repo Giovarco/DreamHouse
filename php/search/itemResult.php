@@ -14,6 +14,6 @@
 
     // Print HTML
     $searchItemShowcaseView = new SearchItemShowcaseView($itemList);
-    echo $searchItemShowcaseView->printHtml();
+    $searchItemShowcaseView->printHtml();
 
 ?>
