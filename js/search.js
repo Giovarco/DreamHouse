@@ -69,7 +69,7 @@ function Search() {
         // Send data by AJAX
         $.ajax({  
             type: "GET",
-            url: "php/search/itemResult.php",
+            url: "php/classes/Controller/itemResultController.php",
             data: data,
             dataType: "html",
             success: function(response) {

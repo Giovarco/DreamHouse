@@ -54,9 +54,9 @@
                         array_push($this->itemList, $item);
                     }
 
-                    }else{
-                        ErrorThrower::send404Error("No records found");
-                    }
+                }else{
+                    ErrorThrower::send404Error("No records found");
+                }
 
                   // Close connection
                   $connection = null;

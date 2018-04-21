@@ -1,7 +1,7 @@
 <?php
 
     // Load environment variables
-    require './../../../environment_setup.php';
+    require './../../../../environment_setup.php';
 
     // Load classes
     require PHP_FOLDER."/classes/Model/ItemList.php";
