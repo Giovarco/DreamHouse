@@ -53,7 +53,7 @@
 					</div>
 
 					<div class="px-3 pt-2">
-						<?php require PHP_FOLDER."/search/searchFilters.php"; ?>
+						<?php require PHP_FOLDER."/classes/Controller/searchFiltersController.php"; ?>
 					</div>
 					
 				</div>
