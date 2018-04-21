@@ -21,6 +21,6 @@
         </div>
     </div>
 
-    <?php require PHP_FOLDER."/search/searchMobileFilters.php" ?>
+    <?php require PHP_FOLDER."/classes/Controller/searchMobileFiltersController.php" ?>
 
 </header>
