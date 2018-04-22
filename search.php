@@ -20,7 +20,7 @@
 		<link rel="stylesheet" href="css/search/general.css">
 		<link rel="stylesheet" href="css/search/mobile.css">
 
-		<title>Hello, world!</title>
+		<title>Search</title>
 
 	</head>
 

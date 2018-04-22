@@ -14,7 +14,7 @@
 		<link rel="stylesheet" href="css/index/general.css">
 		<link rel="stylesheet" href="css/index/mobile.css">
 
-		<title>DreamHouse</title>
+		<title>Home</title>
 
 	</head>
 
