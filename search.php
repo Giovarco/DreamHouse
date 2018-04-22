@@ -38,7 +38,9 @@
 				</div>
 
 				<div class="col-sm-9 my-auto">
-					<h1 id="title" class="text-white text-center">Milan</h1>
+					<h1 id="title" class="text-white text-center">
+						<?php echo $purifier->purify( $_GET['city'] ); ?>
+					</h1>
 				</div>
 			</div>
 
